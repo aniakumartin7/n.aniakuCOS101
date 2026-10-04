@@ -1,0 +1,1 @@
+/Users/nnabuezeaniakumartin/Documents/n.aniakuCOS101/week-6/Project/resturant_menu/target/debug/resturant_menu: /Users/nnabuezeaniakumartin/Documents/n.aniakuCOS101/week-6/Project/resturant_menu/src/main.rs
