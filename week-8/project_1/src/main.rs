@@ -1,32 +1,79 @@
-use std::fs::File;
-use std::io::Write;
-
 fn main() {
-    let lager = ["33 Export", "Desperados", "Goldberg", "Gulder", "Heineken", "Star"];
-    let stout = ["Legend", "Turbo King", "Williams"];
-    let non_alcoholic = ["Maltina", "Amstel Malta", "Malta Gold", "Fayrouz"];
+    let public_servant = vec![
+        "Intern",
+        "Administrator",
+        "Senior Administrator",
+        "Office Manager",
+        "Director",
+        "CEO",
+    ];
 
-    let mut file = File::create("drinks.txt").expect("Unable to create file");
+    let academic = vec![
+        "-",
+        "Research Assistant",
+        "PhD Candidate",
+        "Post-Doc Researcher",
+        "Senior Lecturer",
+        "Dean",
+    ];
 
-    writeln!(file, "NIGERIAN BREWERIES").unwrap();
-    writeln!(file, "").unwrap();
+    let lawyer = vec![
+        "Paralegal",
+        "Junior Associate",
+        "Associate",
+        "Senior Associate 1-2",
+        "Senior Associate 3-4",
+        "Partner",
+    ];
 
-    writeln!(file, "Lager").unwrap();
-    for drink in lager.iter() {
-        writeln!(file, "{}", drink).unwrap();
+    let teacher = vec![
+        "Placement",
+        "Classroom Teacher",
+        "Senior Teacher",
+        "Leading Teacher",
+        "Deputy Principal",
+        "Principal",
+    ];
+
+    let levels = vec!["APS 1-2", "APS 3-5", "APS 5-8", "EL1 8-10", "EL2 10-13", "SES"];
+
+    println!("APS Level Checker");
+    println!("1. Public Servant");
+    println!("2. Academic");
+    println!("3. Lawyer");
+    println!("4. Teacher");
+
+    let job = 3;
+    let experience = 6;
+
+    let mut level = 0;
+
+    if experience >= 1 && experience <= 2 {
+        level = 0;
+    } else if experience >= 3 && experience <= 5 {
+        level = 1;
+    } else if experience >= 5 && experience <= 8 {
+        level = 2;
+    } else if experience >= 8 && experience <= 10 {
+        level = 3;
+    } else if experience >= 10 && experience <= 13 {
+        level = 4;
+    } else if experience > 13 {
+        level = 5;
     }
 
-    writeln!(file, "").unwrap();
-    writeln!(file, "Stout").unwrap();
-    for drink in stout.iter() {
-        writeln!(file, "{}", drink).unwrap();
-    }
+    println!("Years of experience: {}", experience);
+    println!("Level: {}", levels[level]);
 
-    writeln!(file, "").unwrap();
-    writeln!(file, "Non-Alcoholic").unwrap();
-    for drink in non_alcoholic.iter() {
-        writeln!(file, "{}", drink).unwrap();
+    if job == 1 {
+        println!("Position: {}", public_servant[level]);
+    } else if job == 2 {
+        println!("Position: {}", academic[level]);
+    } else if job == 3 {
+        println!("Position: {}", lawyer[level]);
+    } else if job == 4 {
+        println!("Position: {}", teacher[level]);
+    } else {
+        println!("Invalid job selection");
     }
-
-    println!("Drinks have been saved to drinks.txt");
 }
